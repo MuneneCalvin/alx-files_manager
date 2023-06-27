@@ -16,7 +16,7 @@ class FilesController {
     const token = request.header('X-Token');
     const key = `auth_${token}`;
     const userId = await redisClient.get(key);
-    // convert id from string to the ObjectID format it usually is in mongodb
+    // convert id from string to the ObjectID format it usually is in mongo
     const userObjId = new ObjectID(userId);
     if (userId) {
       const users = dbClient.db.collection('users');
